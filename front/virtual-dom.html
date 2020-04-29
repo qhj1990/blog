@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>虚拟DOM | qhj1990前端记录</title>
+    <meta name="description" content="记录">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/logo.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.9f9ae0b8.css" as="style"><link rel="preload" href="/assets/js/app.bfa54003.js" as="script"><link rel="preload" href="/assets/js/2.636b4a88.js" as="script"><link rel="preload" href="/assets/js/24.6969b0c6.js" as="script"><link rel="prefetch" href="/assets/js/10.676f8525.js"><link rel="prefetch" href="/assets/js/11.ce0b4356.js"><link rel="prefetch" href="/assets/js/12.e4993b0d.js"><link rel="prefetch" href="/assets/js/13.cd2b74d1.js"><link rel="prefetch" href="/assets/js/14.e73a4d3b.js"><link rel="prefetch" href="/assets/js/15.7c06cb36.js"><link rel="prefetch" href="/assets/js/16.41a65653.js"><link rel="prefetch" href="/assets/js/17.0daafe0b.js"><link rel="prefetch" href="/assets/js/18.e2f844e5.js"><link rel="prefetch" href="/assets/js/19.43f2d1d9.js"><link rel="prefetch" href="/assets/js/20.01d47aba.js"><link rel="prefetch" href="/assets/js/21.27b87776.js"><link rel="prefetch" href="/assets/js/22.93d02cf0.js"><link rel="prefetch" href="/assets/js/23.9c51aee9.js"><link rel="prefetch" href="/assets/js/25.c5f00738.js"><link rel="prefetch" href="/assets/js/26.b4386696.js"><link rel="prefetch" href="/assets/js/27.88a79ef9.js"><link rel="prefetch" href="/assets/js/28.d99cfbba.js"><link rel="prefetch" href="/assets/js/29.d8622cc3.js"><link rel="prefetch" href="/assets/js/3.7a67e078.js"><link rel="prefetch" href="/assets/js/30.a75035d1.js"><link rel="prefetch" href="/assets/js/31.e34273a4.js"><link rel="prefetch" href="/assets/js/32.d202823f.js"><link rel="prefetch" href="/assets/js/33.76e1e90d.js"><link rel="prefetch" href="/assets/js/34.64e58f55.js"><link rel="prefetch" href="/assets/js/35.18d21c8d.js"><link rel="prefetch" href="/assets/js/36.fb0301a0.js"><link rel="prefetch" href="/assets/js/37.07a920f7.js"><link rel="prefetch" href="/assets/js/38.0bfbb95f.js"><link rel="prefetch" href="/assets/js/39.ee7b3fd5.js"><link rel="prefetch" href="/assets/js/4.386a292c.js"><link rel="prefetch" href="/assets/js/40.07e3401b.js"><link rel="prefetch" href="/assets/js/41.6a787097.js"><link rel="prefetch" href="/assets/js/42.da1139ad.js"><link rel="prefetch" href="/assets/js/43.9367e8fd.js"><link rel="prefetch" href="/assets/js/44.6738ea49.js"><link rel="prefetch" href="/assets/js/45.edbc05ee.js"><link rel="prefetch" href="/assets/js/46.46f307b9.js"><link rel="prefetch" href="/assets/js/47.2d091618.js"><link rel="prefetch" href="/assets/js/48.472fdaca.js"><link rel="prefetch" href="/assets/js/49.5e2a62c2.js"><link rel="prefetch" href="/assets/js/5.948d66eb.js"><link rel="prefetch" href="/assets/js/50.dba46f9c.js"><link rel="prefetch" href="/assets/js/51.45c43930.js"><link rel="prefetch" href="/assets/js/52.6e8e6b0b.js"><link rel="prefetch" href="/assets/js/53.451924ac.js"><link rel="prefetch" href="/assets/js/54.f8328d0e.js"><link rel="prefetch" href="/assets/js/55.49575357.js"><link rel="prefetch" href="/assets/js/56.c8c9f3d7.js"><link rel="prefetch" href="/assets/js/57.484e8111.js"><link rel="prefetch" href="/assets/js/58.a714df97.js"><link rel="prefetch" href="/assets/js/59.ba84f9a6.js"><link rel="prefetch" href="/assets/js/6.2b80dd0a.js"><link rel="prefetch" href="/assets/js/60.9fc18e91.js"><link rel="prefetch" href="/assets/js/61.1499cd37.js"><link rel="prefetch" href="/assets/js/62.127d61ae.js"><link rel="prefetch" href="/assets/js/63.5723e21f.js"><link rel="prefetch" href="/assets/js/64.c5872cee.js"><link rel="prefetch" href="/assets/js/65.54695bea.js"><link rel="prefetch" href="/assets/js/66.f14b5018.js"><link rel="prefetch" href="/assets/js/67.ca4bef11.js"><link rel="prefetch" href="/assets/js/68.4b328080.js"><link rel="prefetch" href="/assets/js/69.0a5421bc.js"><link rel="prefetch" href="/assets/js/7.e7881134.js"><link rel="prefetch" href="/assets/js/70.908fbff2.js"><link rel="prefetch" href="/assets/js/8.73d70fb8.js"><link rel="prefetch" href="/assets/js/9.76160ac9.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9f9ae0b8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">qhj1990前端记录</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规范" class="dropdown-title"><span class="title">规范</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/standard/html.html" class="nav-link">
+  html规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/css.html" class="nav-link">
+  css规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/js.html" class="nav-link">
+  javascript规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/git.html" class="nav-link">
+  git规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/eslint.html" class="nav-link">
+  ESLint
+</a></li><li class="dropdown-item"><!----> <a href="/standard/stylelint.html" class="nav-link">
+  stylelint
+</a></li><li class="dropdown-item"><!----> <a href="/standard/prettier.html" class="nav-link">
+  prettier
+</a></li><li class="dropdown-item"><!----> <a href="/standard/editorconfig.html" class="nav-link">
+  editorconfig
+</a></li><li class="dropdown-item"><!----> <a href="/standard/husky.html" class="nav-link">
+  husky
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front/html/html.html" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/front/css/css.html" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/front/css/less.html" class="nav-link">
+  less
+</a></li><li class="dropdown-subitem"><a href="/front/css/sass.html" class="nav-link">
+  sass
+</a></li><li class="dropdown-subitem"><a href="/front/css/postcss.html" class="nav-link">
+  postcss
+</a></li></ul></li><li class="dropdown-item"><h4>
+          JavaScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/front/javascript/js.html" class="nav-link">
+  js基础
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/design-pattern.html" class="nav-link">
+  js设计模式
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/call、apply、bind和this.html" class="nav-link">
+  call、apply、bind和this
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/event-loop.html" class="nav-link">
+  Event-Loop
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/module.html" class="nav-link">
+  模块化
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/front/jquery.html" class="nav-link">
+  jQuery
+</a></li><li class="dropdown-item"><!----> <a href="/front/http.html" class="nav-link">
+  HTTP
+</a></li><li class="dropdown-item"><!----> <a href="/front/router.html" class="nav-link">
+  前端路由
+</a></li><li class="dropdown-item"><!----> <a href="/front/render.html" class="nav-link">
+  网页渲染过程
+</a></li><li class="dropdown-item"><!----> <a href="/front/virtual-dom.html" class="nav-link router-link-exact-active router-link-active">
+  虚拟DOM
+</a></li><li class="dropdown-item"><!----> <a href="/front/websocket.html" class="nav-link">
+  websocket
+</a></li><li class="dropdown-item"><!----> <a href="/front/performance-optimizing.html" class="nav-link">
+  性能优化
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/vue.html" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue3.html" class="nav-link">
+  vue3
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vuex.html" class="nav-link">
+  vuex
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue-router.html" class="nav-link">
+  vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue-ui.html" class="nav-link">
+  vue组件库
+</a></li><li class="dropdown-item"><!----> <a href="/vue/ssr.html" class="nav-link">
+  SSR
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue-cli.html" class="nav-link">
+  vue-cli
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="React" class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/react/react.html" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/react/react-router.html" class="nav-link">
+  React-Router
+</a></li><li class="dropdown-item"><h4>
+          状态管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/react/react-redux.html" class="nav-link">
+  React-Redux
+</a></li><li class="dropdown-subitem"><a href="/react/mobx.html" class="nav-link">
+  Mobx-React
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/react/react-ui.html" class="nav-link">
+  UI组件
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/npm-and-yarn.html" class="nav-link">
+  NPM和Yarn
+</a></li><li class="dropdown-item"><!----> <a href="/node/node-multi-version.html" class="nav-link">
+  Node多版本管理
+</a></li><li class="dropdown-item"><!----> <a href="/node/base.html" class="nav-link">
+  Node基础
+</a></li><li class="dropdown-item"><!----> <a href="/node/express.html" class="nav-link">
+  Express
+</a></li><li class="dropdown-item"><!----> <a href="/node/koa.html" class="nav-link">
+  Koa
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/webpack.html" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/tools/gulp.html" class="nav-link">
+  Gulp
+</a></li><li class="dropdown-item"><!----> <a href="/tools/rollupjs.html" class="nav-link">
+  rollup.js
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vscode.html" class="nav-link">
+  VSCode
+</a></li><li class="dropdown-item"><!----> <a href="/tools/mac.html" class="nav-link">
+  Mac环境
+</a></li><li class="dropdown-item"><!----> <a href="/tools/chrome-extensions.html" class="nav-link">
+  Chrome插件
+</a></li><li class="dropdown-item"><!----> <a href="/tools/secure.html" class="nav-link">
+  前端安全
+</a></li><li class="dropdown-item"><!----> <a href="/tools/cloud.html" class="nav-link">
+  云服务
+</a></li><li class="dropdown-item"><!----> <a href="/tools/shell.html" class="nav-link">
+  Shell
+</a></li><li class="dropdown-item"><!----> <a href="/tools/file.html" class="nav-link">
+  脚本配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/tools/plopjs.html" class="nav-link">
+  Plop
+</a></li><li class="dropdown-item"><!----> <a href="/tools/inquirerjs.html" class="nav-link">
+  Inquirer.js
+</a></li><li class="dropdown-item"><!----> <a href="/tools/monorepo.html" class="nav-link">
+  Monorepo
+</a></li><li class="dropdown-item"><!----> <a href="/tools/microservice.html" class="nav-link">
+  前端微服务
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规范" class="dropdown-title"><span class="title">规范</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/standard/html.html" class="nav-link">
+  html规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/css.html" class="nav-link">
+  css规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/js.html" class="nav-link">
+  javascript规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/git.html" class="nav-link">
+  git规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/eslint.html" class="nav-link">
+  ESLint
+</a></li><li class="dropdown-item"><!----> <a href="/standard/stylelint.html" class="nav-link">
+  stylelint
+</a></li><li class="dropdown-item"><!----> <a href="/standard/prettier.html" class="nav-link">
+  prettier
+</a></li><li class="dropdown-item"><!----> <a href="/standard/editorconfig.html" class="nav-link">
+  editorconfig
+</a></li><li class="dropdown-item"><!----> <a href="/standard/husky.html" class="nav-link">
+  husky
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front/html/html.html" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/front/css/css.html" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/front/css/less.html" class="nav-link">
+  less
+</a></li><li class="dropdown-subitem"><a href="/front/css/sass.html" class="nav-link">
+  sass
+</a></li><li class="dropdown-subitem"><a href="/front/css/postcss.html" class="nav-link">
+  postcss
+</a></li></ul></li><li class="dropdown-item"><h4>
+          JavaScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/front/javascript/js.html" class="nav-link">
+  js基础
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/design-pattern.html" class="nav-link">
+  js设计模式
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/call、apply、bind和this.html" class="nav-link">
+  call、apply、bind和this
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/event-loop.html" class="nav-link">
+  Event-Loop
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/module.html" class="nav-link">
+  模块化
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/front/jquery.html" class="nav-link">
+  jQuery
+</a></li><li class="dropdown-item"><!----> <a href="/front/http.html" class="nav-link">
+  HTTP
+</a></li><li class="dropdown-item"><!----> <a href="/front/router.html" class="nav-link">
+  前端路由
+</a></li><li class="dropdown-item"><!----> <a href="/front/render.html" class="nav-link">
+  网页渲染过程
+</a></li><li class="dropdown-item"><!----> <a href="/front/virtual-dom.html" class="nav-link router-link-exact-active router-link-active">
+  虚拟DOM
+</a></li><li class="dropdown-item"><!----> <a href="/front/websocket.html" class="nav-link">
+  websocket
+</a></li><li class="dropdown-item"><!----> <a href="/front/performance-optimizing.html" class="nav-link">
+  性能优化
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/vue.html" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue3.html" class="nav-link">
+  vue3
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vuex.html" class="nav-link">
+  vuex
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue-router.html" class="nav-link">
+  vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue-ui.html" class="nav-link">
+  vue组件库
+</a></li><li class="dropdown-item"><!----> <a href="/vue/ssr.html" class="nav-link">
+  SSR
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue-cli.html" class="nav-link">
+  vue-cli
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="React" class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/react/react.html" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/react/react-router.html" class="nav-link">
+  React-Router
+</a></li><li class="dropdown-item"><h4>
+          状态管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/react/react-redux.html" class="nav-link">
+  React-Redux
+</a></li><li class="dropdown-subitem"><a href="/react/mobx.html" class="nav-link">
+  Mobx-React
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/react/react-ui.html" class="nav-link">
+  UI组件
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/npm-and-yarn.html" class="nav-link">
+  NPM和Yarn
+</a></li><li class="dropdown-item"><!----> <a href="/node/node-multi-version.html" class="nav-link">
+  Node多版本管理
+</a></li><li class="dropdown-item"><!----> <a href="/node/base.html" class="nav-link">
+  Node基础
+</a></li><li class="dropdown-item"><!----> <a href="/node/express.html" class="nav-link">
+  Express
+</a></li><li class="dropdown-item"><!----> <a href="/node/koa.html" class="nav-link">
+  Koa
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/webpack.html" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/tools/gulp.html" class="nav-link">
+  Gulp
+</a></li><li class="dropdown-item"><!----> <a href="/tools/rollupjs.html" class="nav-link">
+  rollup.js
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vscode.html" class="nav-link">
+  VSCode
+</a></li><li class="dropdown-item"><!----> <a href="/tools/mac.html" class="nav-link">
+  Mac环境
+</a></li><li class="dropdown-item"><!----> <a href="/tools/chrome-extensions.html" class="nav-link">
+  Chrome插件
+</a></li><li class="dropdown-item"><!----> <a href="/tools/secure.html" class="nav-link">
+  前端安全
+</a></li><li class="dropdown-item"><!----> <a href="/tools/cloud.html" class="nav-link">
+  云服务
+</a></li><li class="dropdown-item"><!----> <a href="/tools/shell.html" class="nav-link">
+  Shell
+</a></li><li class="dropdown-item"><!----> <a href="/tools/file.html" class="nav-link">
+  脚本配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/tools/plopjs.html" class="nav-link">
+  Plop
+</a></li><li class="dropdown-item"><!----> <a href="/tools/inquirerjs.html" class="nav-link">
+  Inquirer.js
+</a></li><li class="dropdown-item"><!----> <a href="/tools/monorepo.html" class="nav-link">
+  Monorepo
+</a></li><li class="dropdown-item"><!----> <a href="/tools/microservice.html" class="nav-link">
+  前端微服务
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>虚拟DOM</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/front/virtual-dom.html#为什么用虚拟dom" class="sidebar-link">为什么用虚拟DOM</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/front/virtual-dom.html#实现虚拟dom" class="sidebar-link">实现虚拟DOM</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/front/virtual-dom.html#常见的虚拟dom框架" class="sidebar-link">常见的虚拟DOM框架</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/front/virtual-dom.html#snabbdom" class="sidebar-link">Snabbdom</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/front/virtual-dom.html#源码结构" class="sidebar-link">源码结构</a></li><li class="sidebar-sub-header"><a href="/front/virtual-dom.html#核心api" class="sidebar-link">核心API</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="虚拟dom"><a href="#虚拟dom" class="header-anchor">#</a> 虚拟DOM</h1> <p>用js对象描述的DOM</p> <h2 id="为什么用虚拟dom"><a href="#为什么用虚拟dom" class="header-anchor">#</a> 为什么用虚拟DOM</h2> <p>真实DOM操作很耗性能，js操作更加有效率</p> <h2 id="实现虚拟dom"><a href="#实现虚拟dom" class="header-anchor">#</a> 实现虚拟DOM</h2> <ol><li>js对象表示DOM结构 VNode</li> <li>比较新旧两个虚拟DOM树的差异 diff</li> <li>差异更新到真实DOM上 patch</li></ol> <h2 id="常见的虚拟dom框架"><a href="#常见的虚拟dom框架" class="header-anchor">#</a> 常见的虚拟DOM框架</h2> <ul><li><a href="https://github.com/snabbdom/snabbdom" target="_blank" rel="noopener noreferrer">snabbdom<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://github.com/Matt-Esch/virtual-dom" target="_blank" rel="noopener noreferrer">virtual-dom<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <h2 id="snabbdom"><a href="#snabbdom" class="header-anchor">#</a> Snabbdom</h2> <p><a href="https://github.com/snabbdom/snabbdom" target="_blank" rel="noopener noreferrer">snabbdom<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>是专注于性能，强大的功能，简单方便的虚拟DOM库</p> <p>特点</p> <ul><li>h函数很容易创建虚拟DOM节点</li> <li>能处理SVG</li> <li>能处理复杂的CSS动画</li> <li>diff算法只比较同层级</li></ul> <h3 id="源码结构"><a href="#源码结构" class="header-anchor">#</a> 源码结构</h3> <ul><li>helpers
+<ul><li>attachto.ts</li></ul></li> <li>modules 模块
+<ul><li>attributes.ts</li> <li>class.ts</li> <li>dataset.ts data-属性</li> <li>eventlisteners.ts 事件相关: 创建事件，更新事件，取消事件</li> <li>hero.ts</li> <li>module.ts</li> <li>props.ts</li> <li>style.ts</li></ul></li> <li>test 测试相关</li> <li>h.ts 创建vnode函数</li> <li>hooks.ts 钩子函数</li> <li>htmldomapi.ts 原生DOM操作</li> <li>is.ts  判断类型操作</li> <li>jsx-global.ts</li> <li>jsx.ts</li> <li>snabbdom.bundle.ts 入口文件</li> <li>snabbdom.ts 初始化函数</li> <li>thunk.ts</li> <li>tovnode.ts dom转成vnode</li> <li>vnode.ts 构造vnode</li></ul> <h3 id="核心api"><a href="#核心api" class="header-anchor">#</a> 核心API</h3> <h4 id="init"><a href="#init" class="header-anchor">#</a> init([])</h4> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">import</span> snabbdom <span class="token keyword">from</span> <span class="token string">'snabbdom'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> patch <span class="token operator">=</span> snabbdom<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">[</span>        <span class="token comment">// 指定模块初始化 patch 方法</span>
+  <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'snabbdom/modules/class'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>   <span class="token comment">// 切换 class</span>
+  <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'snabbdom/modules/props'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>   <span class="token comment">// 设置 DOM 元素的属性</span>
+  <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'snabbdom/modules/style'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>   <span class="token comment">// 处理元素的 style ，支持动画</span>
+  <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'snabbdom/modules/eventlisteners'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 事件处理</span>
+  <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'snabbdom/modules/attributes'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 属性</span>
+  <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'snabbdom/modules/dataset'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// data-属性</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>init参数的数组接收modules的各个模块，按需require，返回一个patch函数，用于更新vnode</p> <h4 id="vnode"><a href="#vnode" class="header-anchor">#</a> vnode</h4> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">VNode</span> <span class="token punctuation">{</span>
+  sel<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token keyword">undefined</span> <span class="token comment">// class选择器</span>
+  data<span class="token operator">:</span> VNodeData <span class="token operator">|</span> <span class="token keyword">undefined</span> <span class="token comment">// vnode相关属性事件设置</span>
+  children<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>VNode <span class="token operator">|</span> <span class="token builtin">string</span><span class="token operator">&gt;</span> <span class="token operator">|</span> <span class="token keyword">undefined</span> <span class="token comment">// 可以是vNode递归渲染，也可以是字符串</span>
+  elm<span class="token operator">:</span> Node <span class="token operator">|</span> <span class="token keyword">undefined</span> <span class="token comment">// 指向dom的真实节点</span>
+  text<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token keyword">undefined</span> <span class="token comment">// 当前节点的文本节点内容</span>
+  key<span class="token operator">:</span> Key <span class="token operator">|</span> <span class="token keyword">undefined</span> <span class="token comment">// 唯一标识用来判断dom是否相同</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">VNodeData</span> <span class="token punctuation">{</span>
+  props<span class="token operator">?</span><span class="token operator">:</span> Props <span class="token comment">//</span>
+  attrs<span class="token operator">?</span><span class="token operator">:</span> Attrs <span class="token comment">//</span>
+  <span class="token keyword">class</span><span class="token operator">?</span><span class="token operator">:</span> Classes <span class="token comment">// 类名</span>
+  style<span class="token operator">?</span><span class="token operator">:</span> VNodeStyle <span class="token comment">// 样式</span>
+  dataset<span class="token operator">?</span><span class="token operator">:</span> Dataset <span class="token comment">//</span>
+  on<span class="token operator">?</span><span class="token operator">:</span> On <span class="token comment">//</span>
+  hero<span class="token operator">?</span><span class="token operator">:</span> Hero <span class="token comment">//</span>
+  attachData<span class="token operator">?</span><span class="token operator">:</span> AttachData <span class="token comment">//</span>
+  hook<span class="token operator">?</span><span class="token operator">:</span> Hooks <span class="token comment">//</span>
+  key<span class="token operator">?</span><span class="token operator">:</span> Key
+  ns<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token comment">// SVGs</span>
+  fn<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> VNode <span class="token comment">// for thunks</span>
+  args<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment">// for thunks</span>
+  <span class="token punctuation">[</span>key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">any</span> <span class="token comment">// 第三方module</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><h4 id="h函数"><a href="#h函数" class="header-anchor">#</a> h函数</h4> <p>创建 vnodes</p> <h4 id="patch"><a href="#patch" class="header-anchor">#</a> patch</h4> <p>patch(vnode, newVnode)</p> <ol><li>调用module的prehook</li> <li>调用原属insert hook和module的post hook</li></ol> <h4 id="createelm函数"><a href="#createelm函数" class="header-anchor">#</a> createElm函数</h4> <p>创建真正的DOM</p> <h4 id="patchvnode"><a href="#patchvnode" class="header-anchor">#</a> patchVnode</h4> <p>比较两个Vnode之间的差异，即diff。如果存在更新，将其反馈到 dom 上</p> <ul><li>如果oldVnode 和vnode相同，则返回</li> <li>不相同
+<ul><li>都存在children
+<ul><li>如果不相同则updateChildren</li></ul></li> <li>vnode存在children</li> <li>oldVnode存在children</li></ul></li></ul> <h4 id="thunk函数"><a href="#thunk函数" class="header-anchor">#</a> thunk函数</h4> <p>同样返回vnode，参数相同就不再比较</p> <h4 id="hook"><a href="#hook" class="header-anchor">#</a> hook</h4> <p>[PreHook, InitHook, CreateHook, InsertHook, PrePatchHook, UpdateHook, PostPatchHook, DestroyHook, RemoveHook, PostHook]</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> VNode <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./vnode'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token function-variable function">PreHook</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">any</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token function-variable function">InitHook</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">vNode<span class="token operator">:</span> VNode</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">any</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token function-variable function">CreateHook</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">emptyVNode<span class="token operator">:</span> VNode<span class="token punctuation">,</span> vNode<span class="token operator">:</span> VNode</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">any</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token function-variable function">InsertHook</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">vNode<span class="token operator">:</span> VNode</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">any</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token function-variable function">PrePatchHook</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">oldVNode<span class="token operator">:</span> VNode<span class="token punctuation">,</span> vNode<span class="token operator">:</span> VNode</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">any</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token function-variable function">UpdateHook</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">oldVNode<span class="token operator">:</span> VNode<span class="token punctuation">,</span> vNode<span class="token operator">:</span> VNode</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">any</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token function-variable function">PostPatchHook</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">oldVNode<span class="token operator">:</span> VNode<span class="token punctuation">,</span> vNode<span class="token operator">:</span> VNode</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">any</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token function-variable function">DestroyHook</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">vNode<span class="token operator">:</span> VNode</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">any</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token function-variable function">RemoveHook</span> <span class="token operator">=</span> <span class="token punctuation">(</span>vNode<span class="token operator">:</span> VNode<span class="token punctuation">,</span> <span class="token function-variable function">removeCallback</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">any</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token function-variable function">PostHook</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">any</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">Hooks</span> <span class="token punctuation">{</span>
+  pre<span class="token operator">?</span><span class="token operator">:</span> PreHook
+  init<span class="token operator">?</span><span class="token operator">:</span> InitHook
+  create<span class="token operator">?</span><span class="token operator">:</span> CreateHook
+  insert<span class="token operator">?</span><span class="token operator">:</span> InsertHook
+  prepatch<span class="token operator">?</span><span class="token operator">:</span> PrePatchHook
+  update<span class="token operator">?</span><span class="token operator">:</span> UpdateHook
+  postpatch<span class="token operator">?</span><span class="token operator">:</span> PostPatchHook
+  destroy<span class="token operator">?</span><span class="token operator">:</span> DestroyHook
+  remove<span class="token operator">?</span><span class="token operator">:</span> RemoveHook
+  post<span class="token operator">?</span><span class="token operator">:</span> PostHook
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.bfa54003.js" defer></script><script src="/assets/js/2.636b4a88.js" defer></script><script src="/assets/js/24.6969b0c6.js" defer></script>
+  </body>
+</html>

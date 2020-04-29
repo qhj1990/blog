@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nginx | qhj1990前端记录</title>
+    <meta name="description" content="记录">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/logo.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.9f9ae0b8.css" as="style"><link rel="preload" href="/assets/js/app.bfa54003.js" as="script"><link rel="preload" href="/assets/js/2.636b4a88.js" as="script"><link rel="preload" href="/assets/js/55.49575357.js" as="script"><link rel="prefetch" href="/assets/js/10.676f8525.js"><link rel="prefetch" href="/assets/js/11.ce0b4356.js"><link rel="prefetch" href="/assets/js/12.e4993b0d.js"><link rel="prefetch" href="/assets/js/13.cd2b74d1.js"><link rel="prefetch" href="/assets/js/14.e73a4d3b.js"><link rel="prefetch" href="/assets/js/15.7c06cb36.js"><link rel="prefetch" href="/assets/js/16.41a65653.js"><link rel="prefetch" href="/assets/js/17.0daafe0b.js"><link rel="prefetch" href="/assets/js/18.e2f844e5.js"><link rel="prefetch" href="/assets/js/19.43f2d1d9.js"><link rel="prefetch" href="/assets/js/20.01d47aba.js"><link rel="prefetch" href="/assets/js/21.27b87776.js"><link rel="prefetch" href="/assets/js/22.93d02cf0.js"><link rel="prefetch" href="/assets/js/23.9c51aee9.js"><link rel="prefetch" href="/assets/js/24.6969b0c6.js"><link rel="prefetch" href="/assets/js/25.c5f00738.js"><link rel="prefetch" href="/assets/js/26.b4386696.js"><link rel="prefetch" href="/assets/js/27.88a79ef9.js"><link rel="prefetch" href="/assets/js/28.d99cfbba.js"><link rel="prefetch" href="/assets/js/29.d8622cc3.js"><link rel="prefetch" href="/assets/js/3.7a67e078.js"><link rel="prefetch" href="/assets/js/30.a75035d1.js"><link rel="prefetch" href="/assets/js/31.e34273a4.js"><link rel="prefetch" href="/assets/js/32.d202823f.js"><link rel="prefetch" href="/assets/js/33.76e1e90d.js"><link rel="prefetch" href="/assets/js/34.64e58f55.js"><link rel="prefetch" href="/assets/js/35.18d21c8d.js"><link rel="prefetch" href="/assets/js/36.fb0301a0.js"><link rel="prefetch" href="/assets/js/37.07a920f7.js"><link rel="prefetch" href="/assets/js/38.0bfbb95f.js"><link rel="prefetch" href="/assets/js/39.ee7b3fd5.js"><link rel="prefetch" href="/assets/js/4.386a292c.js"><link rel="prefetch" href="/assets/js/40.07e3401b.js"><link rel="prefetch" href="/assets/js/41.6a787097.js"><link rel="prefetch" href="/assets/js/42.da1139ad.js"><link rel="prefetch" href="/assets/js/43.9367e8fd.js"><link rel="prefetch" href="/assets/js/44.6738ea49.js"><link rel="prefetch" href="/assets/js/45.edbc05ee.js"><link rel="prefetch" href="/assets/js/46.46f307b9.js"><link rel="prefetch" href="/assets/js/47.2d091618.js"><link rel="prefetch" href="/assets/js/48.472fdaca.js"><link rel="prefetch" href="/assets/js/49.5e2a62c2.js"><link rel="prefetch" href="/assets/js/5.948d66eb.js"><link rel="prefetch" href="/assets/js/50.dba46f9c.js"><link rel="prefetch" href="/assets/js/51.45c43930.js"><link rel="prefetch" href="/assets/js/52.6e8e6b0b.js"><link rel="prefetch" href="/assets/js/53.451924ac.js"><link rel="prefetch" href="/assets/js/54.f8328d0e.js"><link rel="prefetch" href="/assets/js/56.c8c9f3d7.js"><link rel="prefetch" href="/assets/js/57.484e8111.js"><link rel="prefetch" href="/assets/js/58.a714df97.js"><link rel="prefetch" href="/assets/js/59.ba84f9a6.js"><link rel="prefetch" href="/assets/js/6.2b80dd0a.js"><link rel="prefetch" href="/assets/js/60.9fc18e91.js"><link rel="prefetch" href="/assets/js/61.1499cd37.js"><link rel="prefetch" href="/assets/js/62.127d61ae.js"><link rel="prefetch" href="/assets/js/63.5723e21f.js"><link rel="prefetch" href="/assets/js/64.c5872cee.js"><link rel="prefetch" href="/assets/js/65.54695bea.js"><link rel="prefetch" href="/assets/js/66.f14b5018.js"><link rel="prefetch" href="/assets/js/67.ca4bef11.js"><link rel="prefetch" href="/assets/js/68.4b328080.js"><link rel="prefetch" href="/assets/js/69.0a5421bc.js"><link rel="prefetch" href="/assets/js/7.e7881134.js"><link rel="prefetch" href="/assets/js/70.908fbff2.js"><link rel="prefetch" href="/assets/js/8.73d70fb8.js"><link rel="prefetch" href="/assets/js/9.76160ac9.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9f9ae0b8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">qhj1990前端记录</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规范" class="dropdown-title"><span class="title">规范</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/standard/html.html" class="nav-link">
+  html规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/css.html" class="nav-link">
+  css规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/js.html" class="nav-link">
+  javascript规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/git.html" class="nav-link">
+  git规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/eslint.html" class="nav-link">
+  ESLint
+</a></li><li class="dropdown-item"><!----> <a href="/standard/stylelint.html" class="nav-link">
+  stylelint
+</a></li><li class="dropdown-item"><!----> <a href="/standard/prettier.html" class="nav-link">
+  prettier
+</a></li><li class="dropdown-item"><!----> <a href="/standard/editorconfig.html" class="nav-link">
+  editorconfig
+</a></li><li class="dropdown-item"><!----> <a href="/standard/husky.html" class="nav-link">
+  husky
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front/html/html.html" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/front/css/css.html" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/front/css/less.html" class="nav-link">
+  less
+</a></li><li class="dropdown-subitem"><a href="/front/css/sass.html" class="nav-link">
+  sass
+</a></li><li class="dropdown-subitem"><a href="/front/css/postcss.html" class="nav-link">
+  postcss
+</a></li></ul></li><li class="dropdown-item"><h4>
+          JavaScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/front/javascript/js.html" class="nav-link">
+  js基础
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/design-pattern.html" class="nav-link">
+  js设计模式
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/call、apply、bind和this.html" class="nav-link">
+  call、apply、bind和this
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/event-loop.html" class="nav-link">
+  Event-Loop
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/module.html" class="nav-link">
+  模块化
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/front/jquery.html" class="nav-link">
+  jQuery
+</a></li><li class="dropdown-item"><!----> <a href="/front/http.html" class="nav-link">
+  HTTP
+</a></li><li class="dropdown-item"><!----> <a href="/front/router.html" class="nav-link">
+  前端路由
+</a></li><li class="dropdown-item"><!----> <a href="/front/render.html" class="nav-link">
+  网页渲染过程
+</a></li><li class="dropdown-item"><!----> <a href="/front/virtual-dom.html" class="nav-link">
+  虚拟DOM
+</a></li><li class="dropdown-item"><!----> <a href="/front/websocket.html" class="nav-link">
+  websocket
+</a></li><li class="dropdown-item"><!----> <a href="/front/performance-optimizing.html" class="nav-link">
+  性能优化
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/vue.html" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue3.html" class="nav-link">
+  vue3
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vuex.html" class="nav-link">
+  vuex
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue-router.html" class="nav-link">
+  vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue-ui.html" class="nav-link">
+  vue组件库
+</a></li><li class="dropdown-item"><!----> <a href="/vue/ssr.html" class="nav-link">
+  SSR
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue-cli.html" class="nav-link">
+  vue-cli
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="React" class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/react/react.html" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/react/react-router.html" class="nav-link">
+  React-Router
+</a></li><li class="dropdown-item"><h4>
+          状态管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/react/react-redux.html" class="nav-link">
+  React-Redux
+</a></li><li class="dropdown-subitem"><a href="/react/mobx.html" class="nav-link">
+  Mobx-React
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/react/react-ui.html" class="nav-link">
+  UI组件
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/npm-and-yarn.html" class="nav-link">
+  NPM和Yarn
+</a></li><li class="dropdown-item"><!----> <a href="/node/node-multi-version.html" class="nav-link">
+  Node多版本管理
+</a></li><li class="dropdown-item"><!----> <a href="/node/base.html" class="nav-link">
+  Node基础
+</a></li><li class="dropdown-item"><!----> <a href="/node/express.html" class="nav-link">
+  Express
+</a></li><li class="dropdown-item"><!----> <a href="/node/koa.html" class="nav-link">
+  Koa
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/webpack.html" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/tools/gulp.html" class="nav-link">
+  Gulp
+</a></li><li class="dropdown-item"><!----> <a href="/tools/rollupjs.html" class="nav-link">
+  rollup.js
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vscode.html" class="nav-link">
+  VSCode
+</a></li><li class="dropdown-item"><!----> <a href="/tools/mac.html" class="nav-link">
+  Mac环境
+</a></li><li class="dropdown-item"><!----> <a href="/tools/chrome-extensions.html" class="nav-link">
+  Chrome插件
+</a></li><li class="dropdown-item"><!----> <a href="/tools/secure.html" class="nav-link">
+  前端安全
+</a></li><li class="dropdown-item"><!----> <a href="/tools/cloud.html" class="nav-link">
+  云服务
+</a></li><li class="dropdown-item"><!----> <a href="/tools/shell.html" class="nav-link">
+  Shell
+</a></li><li class="dropdown-item"><!----> <a href="/tools/file.html" class="nav-link">
+  脚本配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/tools/plopjs.html" class="nav-link">
+  Plop
+</a></li><li class="dropdown-item"><!----> <a href="/tools/inquirerjs.html" class="nav-link">
+  Inquirer.js
+</a></li><li class="dropdown-item"><!----> <a href="/tools/monorepo.html" class="nav-link">
+  Monorepo
+</a></li><li class="dropdown-item"><!----> <a href="/tools/microservice.html" class="nav-link">
+  前端微服务
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规范" class="dropdown-title"><span class="title">规范</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/standard/html.html" class="nav-link">
+  html规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/css.html" class="nav-link">
+  css规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/js.html" class="nav-link">
+  javascript规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/git.html" class="nav-link">
+  git规范
+</a></li><li class="dropdown-item"><!----> <a href="/standard/eslint.html" class="nav-link">
+  ESLint
+</a></li><li class="dropdown-item"><!----> <a href="/standard/stylelint.html" class="nav-link">
+  stylelint
+</a></li><li class="dropdown-item"><!----> <a href="/standard/prettier.html" class="nav-link">
+  prettier
+</a></li><li class="dropdown-item"><!----> <a href="/standard/editorconfig.html" class="nav-link">
+  editorconfig
+</a></li><li class="dropdown-item"><!----> <a href="/standard/husky.html" class="nav-link">
+  husky
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front/html/html.html" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/front/css/css.html" class="nav-link">
+  css
+</a></li><li class="dropdown-subitem"><a href="/front/css/less.html" class="nav-link">
+  less
+</a></li><li class="dropdown-subitem"><a href="/front/css/sass.html" class="nav-link">
+  sass
+</a></li><li class="dropdown-subitem"><a href="/front/css/postcss.html" class="nav-link">
+  postcss
+</a></li></ul></li><li class="dropdown-item"><h4>
+          JavaScript
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/front/javascript/js.html" class="nav-link">
+  js基础
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/design-pattern.html" class="nav-link">
+  js设计模式
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/call、apply、bind和this.html" class="nav-link">
+  call、apply、bind和this
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/event-loop.html" class="nav-link">
+  Event-Loop
+</a></li><li class="dropdown-subitem"><a href="/front/javascript/module.html" class="nav-link">
+  模块化
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/front/jquery.html" class="nav-link">
+  jQuery
+</a></li><li class="dropdown-item"><!----> <a href="/front/http.html" class="nav-link">
+  HTTP
+</a></li><li class="dropdown-item"><!----> <a href="/front/router.html" class="nav-link">
+  前端路由
+</a></li><li class="dropdown-item"><!----> <a href="/front/render.html" class="nav-link">
+  网页渲染过程
+</a></li><li class="dropdown-item"><!----> <a href="/front/virtual-dom.html" class="nav-link">
+  虚拟DOM
+</a></li><li class="dropdown-item"><!----> <a href="/front/websocket.html" class="nav-link">
+  websocket
+</a></li><li class="dropdown-item"><!----> <a href="/front/performance-optimizing.html" class="nav-link">
+  性能优化
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/vue.html" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue3.html" class="nav-link">
+  vue3
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vuex.html" class="nav-link">
+  vuex
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue-router.html" class="nav-link">
+  vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue-ui.html" class="nav-link">
+  vue组件库
+</a></li><li class="dropdown-item"><!----> <a href="/vue/ssr.html" class="nav-link">
+  SSR
+</a></li><li class="dropdown-item"><!----> <a href="/vue/vue-cli.html" class="nav-link">
+  vue-cli
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="React" class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/react/react.html" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/react/react-router.html" class="nav-link">
+  React-Router
+</a></li><li class="dropdown-item"><h4>
+          状态管理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/react/react-redux.html" class="nav-link">
+  React-Redux
+</a></li><li class="dropdown-subitem"><a href="/react/mobx.html" class="nav-link">
+  Mobx-React
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/react/react-ui.html" class="nav-link">
+  UI组件
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/npm-and-yarn.html" class="nav-link">
+  NPM和Yarn
+</a></li><li class="dropdown-item"><!----> <a href="/node/node-multi-version.html" class="nav-link">
+  Node多版本管理
+</a></li><li class="dropdown-item"><!----> <a href="/node/base.html" class="nav-link">
+  Node基础
+</a></li><li class="dropdown-item"><!----> <a href="/node/express.html" class="nav-link">
+  Express
+</a></li><li class="dropdown-item"><!----> <a href="/node/koa.html" class="nav-link">
+  Koa
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/webpack.html" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/tools/gulp.html" class="nav-link">
+  Gulp
+</a></li><li class="dropdown-item"><!----> <a href="/tools/rollupjs.html" class="nav-link">
+  rollup.js
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vscode.html" class="nav-link">
+  VSCode
+</a></li><li class="dropdown-item"><!----> <a href="/tools/mac.html" class="nav-link">
+  Mac环境
+</a></li><li class="dropdown-item"><!----> <a href="/tools/chrome-extensions.html" class="nav-link">
+  Chrome插件
+</a></li><li class="dropdown-item"><!----> <a href="/tools/secure.html" class="nav-link">
+  前端安全
+</a></li><li class="dropdown-item"><!----> <a href="/tools/cloud.html" class="nav-link">
+  云服务
+</a></li><li class="dropdown-item"><!----> <a href="/tools/shell.html" class="nav-link">
+  Shell
+</a></li><li class="dropdown-item"><!----> <a href="/tools/file.html" class="nav-link">
+  脚本配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/tools/plopjs.html" class="nav-link">
+  Plop
+</a></li><li class="dropdown-item"><!----> <a href="/tools/inquirerjs.html" class="nav-link">
+  Inquirer.js
+</a></li><li class="dropdown-item"><!----> <a href="/tools/monorepo.html" class="nav-link">
+  Monorepo
+</a></li><li class="dropdown-item"><!----> <a href="/tools/microservice.html" class="nav-link">
+  前端微服务
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Nginx</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/tools/nginx.html#nginx优点" class="sidebar-link">Nginx优点</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/tools/nginx.html#nginx版本" class="sidebar-link">Nginx版本</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/tools/nginx.html#nginx安装" class="sidebar-link">Nginx安装</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/tools/nginx.html#查看nginx版本" class="sidebar-link">查看Nginx版本</a></li><li class="sidebar-sub-header"><a href="/tools/nginx.html#安装" class="sidebar-link">安装</a></li></ul></li><li><a href="/tools/nginx.html#nginx配置" class="sidebar-link">Nginx配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/tools/nginx.html#自定义错误页面" class="sidebar-link">自定义错误页面</a></li><li class="sidebar-sub-header"><a href="/tools/nginx.html#访问控制" class="sidebar-link">访问控制</a></li><li class="sidebar-sub-header"><a href="/tools/nginx.html#访问权限" class="sidebar-link">访问权限</a></li></ul></li><li><a href="/tools/nginx.html#nginx启动停止重启" class="sidebar-link">Nginx启动停止重启</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/tools/nginx.html#启动" class="sidebar-link">启动</a></li><li class="sidebar-sub-header"><a href="/tools/nginx.html#停止" class="sidebar-link">停止</a></li><li class="sidebar-sub-header"><a href="/tools/nginx.html#重启nginx" class="sidebar-link">重启nginx</a></li><li class="sidebar-sub-header"><a href="/tools/nginx.html#重新载入配置文件" class="sidebar-link">重新载入配置文件</a></li></ul></li><li><a href="/tools/nginx.html#使用场景" class="sidebar-link">使用场景</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/tools/nginx.html#静态资源服务器" class="sidebar-link">静态资源服务器</a></li><li class="sidebar-sub-header"><a href="/tools/nginx.html#反向代理" class="sidebar-link">反向代理</a></li><li class="sidebar-sub-header"><a href="/tools/nginx.html#适配pc或移动设备" class="sidebar-link">适配PC或移动设备</a></li><li class="sidebar-sub-header"><a href="/tools/nginx.html#gzip压缩配置" class="sidebar-link">Gzip压缩配置</a></li><li class="sidebar-sub-header"><a href="/tools/nginx.html#合并请求" class="sidebar-link">合并请求</a></li><li class="sidebar-sub-header"><a href="/tools/nginx.html#图片处理" class="sidebar-link">图片处理</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="nginx"><a href="#nginx" class="header-anchor">#</a> Nginx</h1> <p><a href="http://nginx.org/en/download.html" target="_blank" rel="noopener noreferrer">Nginx<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。</p> <h2 id="nginx优点"><a href="#nginx优点" class="header-anchor">#</a> Nginx优点</h2> <ul><li>支持高并发</li> <li>内存消耗少</li> <li>免费使用可以商业化</li> <li>配置文件简单</li> <li>反向代理，负载均衡</li></ul> <h2 id="nginx版本"><a href="#nginx版本" class="header-anchor">#</a> Nginx版本</h2> <p><a href="http://nginx.org/en/download.html" target="_blank" rel="noopener noreferrer">Nginx<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>版本分为不同的版本.</p> <ul><li>Mainline version: 开发版本</li> <li>Stable version: 稳定版本</li> <li>legacy version: 历史版本</li></ul> <h2 id="nginx安装"><a href="#nginx安装" class="header-anchor">#</a> Nginx安装</h2> <h3 id="查看nginx版本"><a href="#查看nginx版本" class="header-anchor">#</a> 查看Nginx版本</h3> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>yum list <span class="token operator">|</span> <span class="token function">grep</span> nginx
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="安装"><a href="#安装" class="header-anchor">#</a> 安装</h3> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 1. 安装必要程序</span>
+yum -y <span class="token function">install</span> gcc gcc-c++ autoconf pcre-devel <span class="token function">make</span> automake
+yum -y <span class="token function">install</span> <span class="token function">wget</span> httpd-tools <span class="token function">vim</span>
+
+<span class="token comment"># 2. 安装Nginx</span>
+yum <span class="token function">install</span> nginx
+
+<span class="token comment"># 查看版本号，可以确认是否安装成功</span>
+nginx -v
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="nginx配置"><a href="#nginx配置" class="header-anchor">#</a> Nginx配置</h2> <h3 id="自定义错误页面"><a href="#自定义错误页面" class="header-anchor">#</a> 自定义错误页面</h3> <p>配置 /nginx/conf.d/default.conf</p> <ul><li>多错误指向一个页面</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>error_page   500 502 503 504  /50x.html;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>单独为错误</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>error_page 404  /404_error.html;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>错误码换成一个地址</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>error_page  404 http://www.baidu.com
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="访问控制"><a href="#访问控制" class="header-anchor">#</a> 访问控制</h3> <p>允许特定主机访问，控制一些ip访问</p> <p>default.conf里进行配置</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>location / {
+    deny   123.9.51.42;
+    allow  45.76.202.231;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="访问权限"><a href="#访问权限" class="header-anchor">#</a> 访问权限</h3> <h4 id="指令优先级"><a href="#指令优先级" class="header-anchor">#</a> 指令优先级</h4> <p>谁先触发，谁先起作用</p> <h4 id="复杂访问控制权限配置"><a href="#复杂访问控制权限配置" class="header-anchor">#</a> 复杂访问控制权限配置</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>location =/img{
+    allow all;
+}
+location =/admin{
+    deny all;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h4 id="正则表达式设置访问权限"><a href="#正则表达式设置访问权限" class="header-anchor">#</a> 正则表达式设置访问权限</h4> <p>不允许访问所有php代码</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> location ~\.php$ {
+    deny all;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="nginx启动停止重启"><a href="#nginx启动停止重启" class="header-anchor">#</a> Nginx启动停止重启</h2> <h3 id="启动"><a href="#启动" class="header-anchor">#</a> 启动</h3> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 1. 直接启动</span>
+nginx
+
+<span class="token comment"># 2. systemctl</span>
+systemctl start nginx.service
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="停止"><a href="#停止" class="header-anchor">#</a> 停止</h3> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 1. 从容停止</span>
+nginx -s quit
+
+<span class="token comment"># 2. 立即停止</span>
+nginx -s stop
+
+<span class="token comment"># 3. 暴力停止进程</span>
+<span class="token function">killall</span> nginx
+
+<span class="token comment"># 4. systemctl</span>
+systemctl start nginx.service
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="重启nginx"><a href="#重启nginx" class="header-anchor">#</a> 重启nginx</h3> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>systemctl restart nginx.service
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="重新载入配置文件"><a href="#重新载入配置文件" class="header-anchor">#</a> 重新载入配置文件</h3> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>nginx -s reload
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="使用场景"><a href="#使用场景" class="header-anchor">#</a> 使用场景</h2> <h3 id="静态资源服务器"><a href="#静态资源服务器" class="header-anchor">#</a> 静态资源服务器</h3> <div class="language-conf line-numbers-mode"><pre class="language-text"><code># 虚拟主机server块
+server {
+    # 端口
+    listen   8080;
+    # 匹配请求中的host值
+    server_name  localhost;
+    # 监听请求路径
+    location / {
+        # 查找目录
+        root /source;
+        # 默认查找
+        index index.html index.htm;
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h3 id="反向代理"><a href="#反向代理" class="header-anchor">#</a> 反向代理</h3> <p>反向代理解决跨域问题</p> <div class="language-conf line-numbers-mode"><pre class="language-text"><code>server{
+    listen 80;
+    server_name nginx2.jspang.com;
+    location / {
+       proxy_pass http://jspang.com;
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>其它反向代理指令</p> <ul><li>proxy_set_header :在将客户端请求发送给后端服务器之前，更改来自客户端的请求头信息。</li> <li>proxy_connect_timeout:配置Nginx与后端代理服务器尝试建立连接的超时时间。</li> <li>proxy_read_timeout : 配置Nginx向后端服务器组发出read请求后，等待相应的超时时间。</li> <li>proxy_send_timeout：配置Nginx向后端服务器组发出write请求后，等待相应的超时时间。</li> <li>proxy_redirect :用于修改后端服务器返回的响应头中的Location和Refresh。</li></ul> <h3 id="适配pc或移动设备"><a href="#适配pc或移动设备" class="header-anchor">#</a> 适配PC或移动设备</h3> <ol><li>在/usr/share/nginx/目录下新建两个文件夹，分别为：pc和mobile目录</li></ol> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token builtin class-name">cd</span> /usr/share/nginx
+<span class="token function">mkdir</span> pc mobile
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ol start="2"><li><p>在pc和miblic目录下，新建两个index.html文件，文件里下面内容</p></li> <li><p>进入etc/nginx/conf.d目录下，修改8001.conf文件，改为下面的形式</p></li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>server{
+    listen 80;
+    server_name nginx2.jspang.com;
+    location / {
+        root /usr/share/nginx/pc;
+        if ($http_user_agent ~* '(Android|webOS|iPhone|iPod|BlackBerry)') {
+            root /usr/share/nginx/mobile;
+        }
+        index index.html;
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="gzip压缩配置"><a href="#gzip压缩配置" class="header-anchor">#</a> Gzip压缩配置</h3> <ul><li>gzip: 该指令用于开启或 关闭gzip模块。</li> <li>gzip_buffers: 设置系统获取几个单位的缓存用于存储gzip的压缩结果数据流。</li> <li>gzip_disable: 可以通过该指令对一些特定的User-Agent不使用压缩功能。</li> <li>gzip_min_length:设置允许压缩的页面最小字节数，页面字节数从相应消息头的Content-length中进行获取。</li> <li>gzip_http_version: 识别HTTP协议版本，其值可以是1.1.或1.0.</li> <li>gzip_proxied: 用于设置启用或禁用从代理服务器上收到相应内容gzip压缩。</li> <li>gzip_vary: 用于在响应消息头中添加Vary：Accept-Encoding,使代理服务器根据请求头中的Accept-Encoding识别是否启用gzip压缩。</li></ul> <div class="language-conf line-numbers-mode"><pre class="language-text"><code>http {
+    # 开启gzip 压缩
+    gzip on;
+    # 设置gzip所需的http协议最低版本 （HTTP/1.1, HTTP/1.0）
+    gzip_http_version 1.1;
+    # 设置压缩级别，压缩级别越高压缩时间越长  （1-9）
+    gzip_comp_level 4;
+    # 设置压缩的最小字节数， 页面Content-Length获取
+    gzip_min_length 1000;
+    # 设置压缩文件的类型  （text/html)
+    gzip_types text/plain application/javascript text/css;
+   .....
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="合并请求"><a href="#合并请求" class="header-anchor">#</a> 合并请求</h3> <div class="language-conf line-numbers-mode"><pre class="language-text"><code># js资源http-concat
+# nginx-http-concat模块的参数远不止下面三个，剩下的请查阅文档
+location /static/js/ {
+    concat on; # 是否打开资源合并开关
+    concat_types application/javascript; # 允许合并的资源类型
+    concat_unique off; # 是否允许合并不同类型的资源
+    concat_max_files 5; # 允许合并的最大资源数目
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="图片处理"><a href="#图片处理" class="header-anchor">#</a> 图片处理</h3></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.bfa54003.js" defer></script><script src="/assets/js/2.636b4a88.js" defer></script><script src="/assets/js/55.49575357.js" defer></script>
+  </body>
+</html>
